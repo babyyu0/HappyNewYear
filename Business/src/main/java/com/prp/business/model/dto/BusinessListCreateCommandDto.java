@@ -41,7 +41,7 @@ public record BusinessListCreateCommandDto(
     public BusinessListCreateCommandDto(String writer, List<BusinessCreateCommandDto> businessList) {
         if (writer == null || writer.trim().isEmpty() || 50 < writer.trim().length()) {
             throw new BusinessException(ErrorMessage.WRITER_INVALID);
-        } else if (businessList == null || businessList.isEmpty()) {
+        } if (businessList == null || businessList.isEmpty()) {
             throw new BusinessException(ErrorMessage.BUSINESS_INVALID);
         }
         this.writer = writer.trim();

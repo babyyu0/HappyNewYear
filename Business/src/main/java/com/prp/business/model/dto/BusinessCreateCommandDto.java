@@ -28,7 +28,7 @@ public record BusinessCreateCommandDto(
     public BusinessCreateCommandDto(String title, String content) {
         if (title == null || title.trim().isEmpty() || 50 < title.trim().length()) {
             throw new BusinessException(ErrorMessage.TITLE_INVALID);
-        } else if (content == null || content.trim().isEmpty() || 200 < content.trim().length()) {
+        } if (content == null || content.trim().isEmpty() || 200 < content.trim().length()) {
             throw new BusinessException(ErrorMessage.CONTENTS_INVALID);
         }
         this.title = title.trim();
