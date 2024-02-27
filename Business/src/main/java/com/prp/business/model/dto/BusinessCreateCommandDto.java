@@ -1,7 +1,6 @@
 package com.prp.business.model.dto;
 
 import jakarta.validation.Valid;
-import lombok.AccessLevel;
 import lombok.Builder;
 
 import java.util.ArrayList;
@@ -32,7 +31,7 @@ public record BusinessCreateCommandDto(
                 .build();
     }
 
-    @Builder(access = AccessLevel.PRIVATE)
+    @Builder
     public BusinessCreateCommandDto(String writer, List<BusinessCommandDto> businessList) {
         if (writer.trim().isEmpty() || 50 < writer.trim().length()) {
             // TO DO :: 예외 처리

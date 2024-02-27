@@ -1,7 +1,6 @@
 package com.prp.business.model.dto;
 
 import jakarta.validation.constraints.Size;
-import lombok.AccessLevel;
 import lombok.Builder;
 
 public record BusinessCommandDto(
@@ -22,7 +21,7 @@ public record BusinessCommandDto(
                 .build();
     }
 
-    @Builder(access = AccessLevel.PRIVATE)
+    @Builder
     public BusinessCommandDto(String title, String content) {
         if (title.trim().isEmpty() || 50 < title.trim().length()) {
             // TO DO :: 예외 처리
