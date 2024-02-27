@@ -7,6 +7,7 @@ import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,11 +16,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("business")
 public class BusinessController {
 
-    private BusinessService businessService;
+    private final BusinessService businessService;
 
     @PostMapping
-    public ResponseEntity<?> createBusiness(@Valid BusinessCreateRequestDto businessCreateRequestDto) {
-        businessService.createBusiness(BusinessCreateCommandDto.from(businessCreateRequestDto));
-        return ResponseEntity.ok(true);
+    public ResponseEntity<?> createBusiness(@Valid @RequestBody BusinessCreateRequestDto businessCreateRequestDto) {
+        return ResponseEntity.ok(businessService.createBusiness(BusinessCreateCommandDto.from(businessCreateRequestDto)));
     }
 }

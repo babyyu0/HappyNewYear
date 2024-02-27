@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 @Mapper
 @Repository
 public interface BusinessDao {
-    public String insert(BusinessVo business) throws DataAccessException;
+    void insert(BusinessVo business) throws DataAccessException;
 }
