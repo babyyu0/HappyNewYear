@@ -8,6 +8,10 @@
         INSERT INTO business(`title`, `content`, `writer_id`, `created_date`, `updated_date`)
         VALUES (#{title}, #{content}, #{writerId}, NOW(), NOW());
     </insert>
+    <select id="selectAll" resultType="BusinessVo">
+        SELECT *, created_date AS createdDate, updated_date AS updatedDate, deleted_date AS deletedDate
+        FROM business WHERE `deleted_date` IS NULL;
+    </select>
     <!--
     <select id="selectAll" parameterType="double" resultType="BoardVO">
         SELECT *, writer_id AS writerId, created_at AS createdAt FROM ${type}_board
