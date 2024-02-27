@@ -11,9 +11,12 @@ import static org.springframework.http.HttpStatus.*;
 public enum ErrorMessage {
     BUSINESS_NOT_FOUND(BAD_REQUEST, "해당 업무가 존재하지 않습니다."),
     BUSINESS_INVALID(INTERNAL_SERVER_ERROR, "해당 업무가 유효하지 않습니다."),
+    ID_INVALID(INTERNAL_SERVER_ERROR, "해당 업무의 아이디가 유효하지 않습니다."),
     WRITER_INVALID(INTERNAL_SERVER_ERROR, "해당 업무의 작성자가 유효하지 않습니다."),
     TITLE_INVALID(INTERNAL_SERVER_ERROR, "해당 업무의 제목이 유효하지 않습니다."),
     CONTENTS_INVALID(INTERNAL_SERVER_ERROR, "해당 업무의 내용이 유효하지 않습니다."),
+    CREATED_DATE_INVALID(INTERNAL_SERVER_ERROR, "해당 업무의 생성 날짜가 유효하지 않습니다."),
+    UPDATED_DATE_INVALID(INTERNAL_SERVER_ERROR, "해당 업무의 수정 날짜가 유효하지 않습니다."),
     DATA_SAVE_FAILED(INTERNAL_SERVER_ERROR, "데이터 저장에 실패했습니다.");
 
     private final HttpStatus status;
