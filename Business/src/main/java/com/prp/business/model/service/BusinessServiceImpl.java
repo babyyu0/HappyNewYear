@@ -1,9 +1,10 @@
 package com.prp.business.model.service;
 
 import com.prp.business.model.dao.BusinessDao;
-import com.prp.business.model.dto.BusinessCommandDto;
 import com.prp.business.model.dto.BusinessCreateCommandDto;
+import com.prp.business.model.dto.BusinessListCreateCommandDto;
 import com.prp.business.model.vo.BusinessVo;
+import com.prp.business.util.BusinessException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,11 +16,11 @@ public class BusinessServiceImpl implements BusinessService {
     private final BusinessDao businessDao;
 
     @Override
-    @Transactional
-    public boolean createBusiness(BusinessCreateCommandDto businessCreateCommandDto) {
-        for (BusinessCommandDto business : businessCreateCommandDto.businessList()) {
+    @Transactional(rollbackFor = RuntimeException.class)
+    public boolean createBusiness(BusinessListCreateCommandDto businessListCreateCommandDto) {
+        for (BusinessCreateCommandDto business : businessListCreateCommandDto.businessList()) {
             BusinessVo businessVo = BusinessVo.builder()
-                    .writerId(businessCreateCommandDto.writer())
+                    .writerId(businessListCreateCommandDto.writer())
                     .title(business.title())
                     .content(business.content())
                     .build();

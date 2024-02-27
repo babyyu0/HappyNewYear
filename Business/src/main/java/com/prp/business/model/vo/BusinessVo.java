@@ -1,5 +1,7 @@
 package com.prp.business.model.vo;
 
+import com.prp.business.util.BusinessException;
+import com.prp.business.util.ErrorMessage;
 import lombok.Builder;
 
 import java.sql.Timestamp;
@@ -14,13 +16,13 @@ public class BusinessVo {
     @Builder
     public BusinessVo(String writerId, String title, String content) {
         if (writerId.trim().isEmpty() || 50 < writerId.trim().length()) {
-            // TO DO :: 예외 처리
+            throw new BusinessException(ErrorMessage.WRITER_INVALID);
         }
         if (title.trim().isEmpty() || 50 < title.trim().length()) {
-            // TO DO :: 예외 처리
+            throw new BusinessException(ErrorMessage.TITLE_INVALID);
         }
         if (content.trim().isEmpty() || 2000 < content.trim().length()) {
-            // TO DO :: 예외 처리
+            throw new BusinessException(ErrorMessage.CONTENTS_INVALID);
         }
 
         this.writerId = writerId.trim();
