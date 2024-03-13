@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 import java.util.regex.Pattern;
 
 public record BusinessReadResponseDto(
-        String id,
+        int id,
         String writer,
         String title,
         String content,
@@ -21,7 +21,7 @@ public record BusinessReadResponseDto(
 ) {
 
     public static BusinessReadResponseDto from(BusinessVo business) {
-        if (business.getId() == null || !Pattern.matches(RegexPattern.bizId, business.getId())) {
+        if (business.getId() <= 0) {
             throw new BusinessException(ErrorMessage.ID_INVALID);
         } if (business.getWriterId() == null || business.getWriterId().trim().isEmpty() || 50 < business.getWriterId().trim().length()) {
             throw new BusinessException(ErrorMessage.WRITER_INVALID);
@@ -47,8 +47,8 @@ public record BusinessReadResponseDto(
     }
 
     @Builder(access = AccessLevel.PRIVATE)
-    public BusinessReadResponseDto(String id, String writer, String title, String content, Timestamp createdDate, Timestamp updatedDate, Timestamp deletedDate) {
-        if (id == null || !Pattern.matches(RegexPattern.bizId, id)) {
+    public BusinessReadResponseDto(int id, String writer, String title, String content, Timestamp createdDate, Timestamp updatedDate, Timestamp deletedDate) {
+        if (id <= 0) {
             throw new BusinessException(ErrorMessage.ID_INVALID);
         } if (writer == null || writer.trim().isEmpty() || 50 < writer.trim().length()) {
             throw new BusinessException(ErrorMessage.WRITER_INVALID);

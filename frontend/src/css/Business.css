@@ -1,0 +1,40 @@
+.box-business {
+    display: flex;
+}
+
+.box-business .inner-business{
+    flex-basis: 84%;
+}
+
+.tb-business-list {
+    width: 90%;
+    margin: 40px auto 0 auto;
+}
+
+.tb-business-list .tr-business-list .th-business-list {
+    background-color: var(--gray-color);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+    
+}
+
+.tb-business-list .tr-business-list .td-business-list {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+.tb-business-list .tr-business-list .business-id {
+    width: 4rem;
+}
+
+.tb-business-list .tr-business-list .business-title {
+    max-width: 20rem;
+    cursor: pointer;
+}
+
+.tb-business-list .tr-business-list .business-writer-id {
+    max-width: 8rem;
+}

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 @RestController
 @RequestMapping("business")
+@CrossOrigin
 public class BusinessController {
 
     private final BusinessService businessService;

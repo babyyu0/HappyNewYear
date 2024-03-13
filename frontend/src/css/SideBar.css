@@ -1,0 +1,14 @@
+.box-sidebar {
+    height: 100%;
+    min-height: 100vh;
+    background-color: var(--base-color);
+    flex-basis: 16%;
+    /*padding: 2rem;*/
+}
+
+.box-category .inner-category .tt-category {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 16px 20px;
+    color: white;
+}
