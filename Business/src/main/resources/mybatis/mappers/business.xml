@@ -5,11 +5,11 @@
 
 <mapper namespace="com.prp.business.model.dao.BusinessDao">
     <insert id="insert" parameterType="BusinessVo">
-        INSERT INTO business(`title`, `content`, `writer_id`, `created_date`, `updated_date`)
+        INSERT INTO business(`business_title`, `business_content`, `writer_id`, `created_date`, `updated_date`)
         VALUES (#{title}, #{content}, #{writerId}, NOW(), NOW());
     </insert>
     <select id="selectAll" resultType="BusinessVo">
-        SELECT *, created_date AS createdDate, updated_date AS updatedDate, deleted_date AS deletedDate
+        SELECT business_id id, business_title title, business_content content, writer_id writerId, created_date createdDate, updated_date updatedDate, deleted_date deletedDate
         FROM business WHERE `deleted_date` IS NULL;
     </select>
     <!--
