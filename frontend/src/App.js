@@ -2,13 +2,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Containers
-import ListContainer from "./containers/ListContainer";
+import BusinessContainer from "./containers/BusinessContainer";
+import "./css/Global.css"
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/business" element={<ListContainer route='business' />} />
+        <Route path="/business" element={<BusinessContainer />} />
       </Routes>
     </BrowserRouter>
   );
