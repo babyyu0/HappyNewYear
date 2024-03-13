@@ -9,8 +9,9 @@
         VALUES (#{title}, #{content}, #{writerId}, NOW(), NOW());
     </insert>
     <select id="selectAll" resultType="BusinessVo">
-        SELECT business_id id, business_title title, business_content content, writer_id writerId, created_date createdDate, updated_date updatedDate, deleted_date deletedDate
-        FROM business WHERE `deleted_date` IS NULL;
+        SELECT `business_id` AS "id", `business_title` AS "title", `business_content` AS "content", `writer_id` AS "writerId",
+            `created_date` AS "createdDate", `updated_date` AS "updatedDate", `deleted_date` AS "deleted_date"
+        FROM business;
     </select>
     <!--
     <select id="selectAll" parameterType="double" resultType="BoardVO">
