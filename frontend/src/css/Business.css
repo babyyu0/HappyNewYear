@@ -1,0 +1,32 @@
+.box-business {
+    display: flex;
+}
+
+.tb-business-list {
+    width: 90%;
+    margin: 40px auto 0 auto;
+}
+
+.tb-business-list .tr-business-list .th-business-list {
+    background-color: var(--gray-color);
+    
+}
+
+.tb-business-list .tr-business-list .td-business-list {
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap; 
+}
+
+.tb-business-list .tr-business-list .business-id {
+    width: 2rem;
+}
+
+.tb-business-list .tr-business-list .business-title {
+    max-width: 10rem;
+}
+
+.tb-business-list .tr-business-list .business-writer-id {
+    max-width: 6rem;
+}
